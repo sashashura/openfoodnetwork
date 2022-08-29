@@ -180,6 +180,8 @@ describe "Check out with Stripe", js: true do
         end
 
         it "allows saving a card and re-using it" do
+          # TODO: This case fails in production after the activemerchant upgrade.
+          # But this test case still passed. We need to make this spec fail correctly.
           checkout_with_stripe guest_checkout: false, remember_card: true
 
           expect(page).to have_content "Confirmed"
